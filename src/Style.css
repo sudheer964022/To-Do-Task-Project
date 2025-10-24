@@ -1,0 +1,618 @@
+
+.headtitle {
+    text-align: center;
+}
+*{
+  user-select: none;
+}
+.progress-tracker {
+margin: 20px 0;
+text-align: center;
+}
+.progress-bar {
+width: 100%;
+height: 20px;
+background-color: #f0f0f0;
+border-radius: 10px;
+overflow: hidden;
+margin-top: 10px;
+}
+.progress {
+height: 100%;
+background-color: #4caf50; /* Green color for the progress */
+transition: width 0.3s ease;
+}
+
+/* Reset / base */
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --accent:#4caf50;
+  --accent-2:#2e8bff;
+  --danger:#e74c3c;
+  --muted:#6b7280;
+  --shadow: 0 6px 18px rgba(22, 28, 37, 0.08);
+  --radius:10px;
+  --max-width:760px;
+  --gap:12px;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #eef2ff 0%, #f7fbff 100%);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* App container */
+.app-container{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 20px;
+}
+
+/* Layout width rules:
+   - mobile: card uses 90% of viewport width
+   - laptop and larger: card uses 70% of viewport width (centered)
+*/
+.card{
+  width:90%;
+  max-width:var(--max-width);
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px;
+  margin:12px;
+  border: 1px solid rgba(16,24,40,0.04);
+}
+
+/* Laptop and up — increase card width for laptop devices and make task-form 70vw / 70vh */
+@media (min-width: 768px){
+  .card{
+    width:80%;
+    max-width:1280px;
+  }
+
+  /* task form size on laptops: 70% of viewport width and height */
+  .task-form{
+    width:70vw;
+    height:20vh;
+    max-width:100%;
+    box-sizing:border-box;
+    padding:18px;
+    overflow:auto; /* allow scrolling when content overflows */
+    background:transparent;
+    border-radius:8px;
+  }
+
+  /* keep form rows inline but allow wrapping if needed */
+  .task-form .row{
+    flex-direction:row;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  /* input/button sizing inside large form */
+  .task-input{
+    font-size:15px;
+    padding:12px 14px;
+    flex:1 1 60%;
+    min-width:0;
+  }
+  .btn-add{
+    padding:10px 16px;
+    flex:0 0 auto;
+  }
+
+  /* selects layout inside bigger form */
+  #btns .select:first-child{
+    max-width:220px;
+    flex:0 0 220px;
+  }
+  #btns .select{
+    flex:1 1 35%;
+  }
+
+  /* slightly taller progress bar on larger screens for better visibility */
+  .progress-bar{
+    height:18px;
+    border-radius:12px;
+  }
+  .progress-tracker p{
+    font-size:15px;
+  }
+
+  /* keep task items comfortable on laptop */
+  .task-item{
+    padding:12px 16px;
+    border-radius:10px;
+    border: 1px solid rgba(119, 135, 167, 0.238);
+  }
+}
+
+/* Extra-large / desktop */
+@media (min-width: 1200px) {
+  .card{
+    width:70%;
+    max-width:1400px;
+  }
+  .task-input{
+    font-size:16px;
+  }
+  .progress-bar{
+    height:20px;
+  }
+  .progress-tracker p{
+    font-size:16px;
+  }
+}
+
+.task{
+  width:100%;
+  max-width:var(--max-width);
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px;
+  margin:12px;
+  border: 1px solid rgba(16,24,40,0.04);
+}
+
+/* headers */
+h1{
+  margin:0 0 6px 0;
+  font-size:20px;
+  text-align:left;
+}
+.subtitle{
+  margin:0 0 16px 0;
+  color:var(--muted);
+  font-size:14px;
+  text-align: center;
+}
+
+/* Task list */
+.task-list{
+  list-style:none;
+  padding:0;
+  margin:12px 0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.task-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 12px;
+  border-radius:8px;
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  border:1px solid rgba(16,24,40,0.03);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.task-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(16,24,40,0.06);
+}
+.task-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.task-text{
+  font-size:15px;
+  color:#111827;
+}
+.task-text .meta{
+  color:var(--muted);
+  font-size:12px;
+  margin-left:6px;
+}
+
+/* completed */
+.task-item.completed .task-text{
+  text-decoration:line-through;
+  color:#9aa4ad;
+  opacity:0.85;
+}
+
+/* Buttons */
+.btn{
+  border:0;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:13px;
+  transition:transform .08s ease, box-shadow .08s ease, opacity .08s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{
+  background:rgba(0, 0, 0, 0);
+  color:rgb(0, 0, 0);
+  border:1px solid rgba(8, 235, 15, 0.238);
+  box-shadow: 0 6px 8px rgba(16, 151, 16, 0.211);
+}
+
+.btn-primary:hover{
+  opacity:0.95;
+  box-shadow: 0 6px 10px rgba(19, 21, 19, 0.228);
+  background-color: rgba(42, 254, 14, 0.23);
+}
+
+.btn-danger{
+  background:transparent;
+  color:var(--danger);
+  border:1px solid rgba(239, 43, 21, 0.39);
+}
+.btn-danger:hover{
+  background:rgba(231, 41, 20, 0.236);
+}
+
+/* clear all */
+.controls{
+  margin-top:16px;
+  display:flex;
+  justify-content:flex-end;
+}
+.btn-clear{
+  background:transparent;
+  color:#f00606;
+  border:2px solid rgba(249, 18, 110, 0.597);
+  padding:8px 14px; 
+  border-radius:8px;
+}
+.btn-clear:hover{
+  background:rgba(254, 24, 93, 0.194);
+}
+
+/* progress tracker */
+.progress-tracker{
+  margin: 18px 0;
+  text-align: left;
+}
+.progress-tracker p{
+  margin:0 0 8px 0;
+  font-size:14px;
+  color:var(--muted);
+}
+.progress-bar{
+  width:100%;
+  height:14px;
+  background-color:#eef2f0;
+  border-radius:999px;
+  overflow:hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.progress{
+  height:100%;
+  background: linear-gradient(90deg,var(--accent-2),var(--accent));
+  transition: width 400ms cubic-bezier(.2,.8,.2,1);
+  width:0%;
+}
+
+/* Task form */
+.task-form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin:12px 0;
+}
+
+/* Row wraps input + button or selects */
+.task-form .row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  width:100%;
+}
+
+/* main input */
+.task-input{
+  flex:1 1 auto;
+  min-width:0; /* allow flex shrink on small screens */
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(16,24,40,0.06);
+  font-size:14px;
+  outline:none;
+  background: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.task-input:focus{
+  box-shadow:0 6px 18px rgba(46,139,255,0.12);
+  border-color: var(--accent-2);
+}
+
+/* add button */
+.btn-add{
+  white-space:nowrap;
+  padding:10px 14px;
+  border-radius:8px;
+}
+ 
+/* selects */
+.select{
+  flex:1 1 0;
+  min-width:0;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid rgba(16,24,40,0.06);
+  background:#fff;
+  font-size:14px;
+}
+
+/* make first select a bit narrower on larger screens */
+#btns .select:first-child{
+  max-width:180px;
+  flex:0 0 180px;
+}
+
+/* Responsive adjustments */
+/* Small screens: stack rows and make controls full width */
+@media (max-width:520px){
+  .task-form .row{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .btn-add{
+    width:100%;
+  }
+  #btns .select:first-child{
+    max-width:none;
+    flex:1 1 auto;
+  }
+}
+
+/* Small devices: make task form use ~90vw and be flexible in height */
+@media (max-width: 767px) {
+  .task-form{
+    width:90vw;
+    max-width:95%;
+    height:auto;
+    padding:12px;
+    box-sizing:border-box;
+  }
+
+  .task-form .row{
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+  }
+
+  #btns{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:flex-start;
+  }
+
+  /* Priority select: full width and compact height on mobile */
+  #btns .select:first-child {
+    max-width:none;
+    flex:1 1 auto;
+    width:100%;
+    padding:6px 10px;         /* smaller vertical padding for compact height */
+    font-size:14px;
+    height:36px;              /* fixed small height */
+    line-height:1;
+    box-sizing:border-box;
+    border-radius:8px;
+  }
+
+  /* Category select: full width, standard height */
+  #btns .select:last-child{
+    flex: 1 1 100%;
+    width:100%;
+    padding:8px 12px;
+    height:40px;
+    box-sizing:border-box;
+    border-radius:8px;
+  }
+
+  .task-input{
+    width:100%;
+    flex:1 1 auto;
+  }
+
+  .btn-add{
+    width:100%;
+    flex:0 0 auto;
+  }
+
+  #btns .select{
+    box-sizing:border-box;
+  }
+}
+
+/* Larger screens: inline layout with compact spacing */
+@media (min-width:900px){
+  .task-form{
+    gap:16px;
+    
+  }
+  .task-input{
+    font-size:15px;
+  }
+  .select{
+    padding:10px 14px;
+  }
+}
+
+/* Empty state when no tasks */
+.empty-state{
+  margin:18px 0;
+  padding:18px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(46,139,255,0.03), rgba(76,175,80,0.02));
+  text-align:center;
+  border:1px dashed rgba(16,24,40,0.04);
+  color:var(--muted);
+}
+.empty-title{
+  margin:0 0 6px 0;
+  font-weight:700;
+  color:#374151;
+}
+.empty-sub{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Ensure task list and form keep good spacing on narrow screens */
+@media (max-width:520px){
+  .card{
+    padding:16px;
+  }
+  .task-item{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .task-actions{
+    display:flex;
+    gap:8px;
+    width:100%;
+  }
+  .controls{
+    justify-content:center;
+  }
+}
+
+/* Fix alignment & gaps for Add button + input rows and task action buttons */
+
+/* ensure the input + add button row is a clean flex row with predictable gap */
+.task-form .row#inp {
+  display: flex;
+  align-items: center;
+  gap: 10px;            /* horizontal gap between input and add button */
+  width: 100%;
+}
+
+/* input should take remaining space, never overflow the button */
+.task-form .row#inp .task-input {
+  flex: 1 1 auto;
+  min-width: 0;         /* allow shrinking on very narrow screens */
+}
+
+/* add button keeps its intrinsic size, don't let it stretch */
+.task-form .row#inp .btn-add {
+  flex: 0 0 auto;
+  margin: 0;            /* remove stray margins */
+  white-space: nowrap;
+}
+
+/* Task list action buttons spacing */
+.task-actions {
+  display: flex;
+  gap: 8px;             /* gap between Complete/Undo and Delete */
+  align-items: center;
+}
+
+/* Slight visual balance for small screens where the row stacks */
+@media (max-width: 520px) {
+  .task-form .row#inp {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .task-form .row#inp .btn-add {
+    width: 100%;
+  }
+}
+
+.btn, .select, .task-input {
+  height: auto;
+  min-height: 36px;
+  box-sizing: border-box;
+}
+
+/* Priority Indicator */
+.priority-indicator {
+  width: 28px;
+  height: 14px;
+  border-radius: 40%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.priority-indicator .wave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: -20px;
+  background: rgba(255, 255, 255, 0.336);
+  border-radius: 40%;
+  animation: wave 3s infinite linear;
+}
+
+.priority-high {
+  background-color: #ef4444; /* red-500 */
+}
+
+.priority-medium {
+  background-color: #f97316; /* orange-500 */
+}
+
+.priority-low {
+  background-color: #22c55e; /* green-500 */
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.priority-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+
+.priority-dot {
+  width: 22px;
+  height: 11px;
+  border-radius: 50%;
+  position: relative;
+  animation: pulse 1.6s infinite ease-in-out;
+}
+
+/* Subtle glow + wave animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1.0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 1;
+  }
+}
