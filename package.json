@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://sudheer964022.github.io/To-Do-Task-Project",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
