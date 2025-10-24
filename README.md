@@ -1,16 +1,48 @@
-# React + Vite
+# 📝 TaskBuddy - A React To-Do Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19.0-blue?style=for-the-badge&logo=react)
+![Vite](https://img.shields.io/badge/Vite-Build-orange?style=for-the-badge&logo=vite)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📌 Overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**TaskBuddy** is a **clean**, **responsive**, and **persistent** to-do list application built using **React** and **Vite**.  
+It allows users to **manage daily tasks**, **set priorities**, **categorize** them, and **track progress visually** — all while saving data in `localStorage` so your tasks stay safe even after closing the browser.
+
+---
+
+## 🚀 Features
+
+| Feature | Description |
+|----------|-------------|
+| 🆕 **Add Tasks** | Quickly add new tasks with a simple form. |
+| 📋 **Task Details** | Each task includes **title**, **priority**, and **category**. |
+| 🔴🟡🟢 **Priority Levels** | High (red), Medium (yellow), Low (green). |
+| 📦 **Persistent Storage** | Saves all tasks to **localStorage** — persists across sessions. |
+| ✅ **Task Management** | Mark tasks as complete / undo completion. |
+| ❌ **Delete & Clear** | Delete a single task or clear all tasks (with confirmation). |
+| ⚡ **Progress Tracker** | Visual progress bar with text counter for completion. |
+| 🪶 **Responsive Design** | Adapts perfectly to **mobile**, **tablet**, and **desktop**. |
+| 🕳️ **Empty State View** | Displays an icon and message when no tasks exist. |
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool | Purpose |
+|------|----------|
+| ⚛️ **React 19** | Frontend UI framework |
+| ⚡ **Vite** | Fast build tool and dev server |
+| 🎨 **CSS** | Custom styling with variables & media queries |
+| 🧩 **React Icons** | For beautiful, consistent icons |
+
+---
+
+## 📂 Project Structure
+
