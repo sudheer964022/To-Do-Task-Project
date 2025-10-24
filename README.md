@@ -16,7 +16,7 @@
 It allows users to **manage daily tasks**, **set priorities**, **categorize** them, and **track progress visually** — all while saving data in `localStorage` so your tasks stay safe even after closing the browser.
 
 ---
-
+<div align="center">
 ## 🚀 Features
 
 | Feature | Description |
@@ -30,9 +30,11 @@ It allows users to **manage daily tasks**, **set priorities**, **categorize** th
 | ⚡ **Progress Tracker** | Visual progress bar with text counter for completion. |
 | 🪶 **Responsive Design** | Adapts perfectly to **mobile**, **tablet**, and **desktop**. |
 | 🕳️ **Empty State View** | Displays an icon and message when no tasks exist. |
+</div>
 
----
+<hr>
 
+<div align="center">
 ## 🛠️ Tech Stack
 
 | Tool | Purpose |
@@ -41,8 +43,87 @@ It allows users to **manage daily tasks**, **set priorities**, **categorize** th
 | ⚡ **Vite** | Fast build tool and dev server |
 | 🎨 **CSS** | Custom styling with variables & media queries |
 | 🧩 **React Icons** | For beautiful, consistent icons |
+</div>
+
+<hr>
+
+
+## 📂 Project Structure
+```plaintext
+To-Do-Task-Project/
+├── src/
+│ ├── App.jsx                   # Main component controlling tasks and localStorage
+│ ├── Components/
+│ │ ├── TaskForm.jsx            # Handles task input (title, priority, category)
+│ │ ├── TaskList.jsx            # Displays list of all tasks
+│ │ ├── ProgressTracker.jsx     # Shows visual task completion progress
+│ │ ├── PriorityIndicator.jsx   # Displays colored dots for priority
+│ │ └── NoTaskIcon.jsx          # SVG shown when task list is empty
+│ ├── Style.css                 # Main stylesheet with all custom styles
+│ └── main.jsx                  # React app entry point
+├── index.html                  # HTML template for Vite
+├── package.json                # Project configuration and dependencies
+└── vite.config.js              # Vite build configuration
+```
+
+
 
 ---
 
-## 📂 Project Structure
+## ⚙️ Installation & Setup
 
+Follow these steps to set up **To-Do-Task** locally:
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/sudheer964022/To-Do-Task-Project.git
+```
+```bash
+cd taskbuddy
+```
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
+Now open (http://localhost:5173) in your browser to view TaskBuddy.
+
+## 🎯 Key Components Overview
+```plaintext
+🧩 App.jsx
+
+Manages global task state (useState, useEffect)
+
+Handles localStorage persistence
+
+Controls CRUD operations and passes data to child components
+
+🧾 TaskForm.jsx
+
+Controlled form to add new tasks
+
+Inputs: task name, priority, and category
+
+🗂️ TaskList.jsx
+
+Maps over tasks and displays each one with complete, undo, or delete functionality
+
+📊 ProgressTracker.jsx
+
+Dynamically calculates completed tasks and shows a progress bar
+
+🔴 PriorityIndicator.jsx
+
+Displays a colored dot based on priority:
+
+🔴 High
+
+🟡 Medium
+
+🟢 Low
+
+🚫 NoTaskIcon.jsx  (.svg)
+```
