@@ -133,13 +133,25 @@ Displays a colored dot based on priority:
 ```
 
 <hr>
+<h2 align="center">📸 Screenshots</h2>
 
-<h2>📸 Screenshots</h2>
-
-<img width="1919" height="1145" alt="Screenshot 2025-10-25 000206" src="https://github.com/user-attachments/assets/14db0b51-61b5-48b4-91ec-1a9f14aaa1c4" />
-
----
-
-<img width="1914" height="1147" alt="Screenshot 2025-10-25 000640" src="https://github.com/user-attachments/assets/578b4206-4b62-45f1-8c4a-aa82f9f18bf2" />
-
-
+<table align="center">
+  <tr>
+    <th>📸 Screenshot 1</th>
+    <th>📸 Screenshot 2</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img 
+        width="700" 
+        alt="Screenshot 1" 
+        src="https://github.com/user-attachments/assets/14db0b51-61b5-48b4-91ec-1a9f14aaa1c4" />
+    </td>
+    <td align="center">
+      <img 
+        width="700" 
+        alt="Screenshot 2" 
+        src="https://github.com/user-attachments/assets/578b4206-4b62-45f1-8c4a-aa82f9f18bf2" />
+    </td>
+  </tr>
+</table>
