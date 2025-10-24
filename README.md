@@ -10,14 +10,14 @@
 
 ---
 
-## 📌 Overview
+<h2>📌 Overview</h2>
 
 **TaskBuddy** is a **clean**, **responsive**, and **persistent** to-do list application built using **React** and **Vite**.  
 It allows users to **manage daily tasks**, **set priorities**, **categorize** them, and **track progress visually** — all while saving data in `localStorage` so your tasks stay safe even after closing the browser.
 
 ---
 <div align="center">
-## 🚀 Features
+<h2>🚀 Features</h2>
 
 | Feature | Description |
 |----------|-------------|
@@ -35,7 +35,7 @@ It allows users to **manage daily tasks**, **set priorities**, **categorize** th
 <hr>
 
 <div align="center">
-## 🛠️ Tech Stack
+<h2>🛠️ Tech Stack</h2>
 
 | Tool | Purpose |
 |------|----------|
@@ -90,9 +90,12 @@ npm run dev
 ```
 
 Now open (http://localhost:5173) in your browser to view TaskBuddy.
+<hr>
 
-## 🎯 Key Components Overview
-```plaintext
+<h1>🎯 Key Components Overview</h1>
+
+```bash
+
 🧩 App.jsx
 
 Manages global task state (useState, useEffect)
@@ -126,4 +129,7 @@ Displays a colored dot based on priority:
 🟢 Low
 
 🚫 NoTaskIcon.jsx  (.svg)
+
 ```
+
+<hr>
