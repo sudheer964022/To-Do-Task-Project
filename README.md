@@ -73,7 +73,7 @@ To-Do-Task-Project/
 ## 🚀 Live Demo
 
 <a href="https://to-do-task-manager-kodnest.netlify.app/" target="_blank" rel="noopener noreferrer">
-  <img src="https://img.shields.io/badge/Visit%20Portfolio-4CAF50?style=for-the-badge&logo=internet-explorer&logoColor=white" alt="Live Demo" />
+  <img src="https://img.shields.io/badge/Visit%20-To Do TaskManager-4CAF50?style=for-the-badge&logo=internet-explorer&logoColor=white" alt="Live Demo" />
 </a>
 
 ---
