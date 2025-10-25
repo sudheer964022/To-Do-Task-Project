@@ -70,6 +70,14 @@ To-Do-Task-Project/
 
 ---
 
+## 🚀 Live Demo
+
+<a href="https://to-do-task-manager-kodnest.netlify.app/" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Visit%20Portfolio-4CAF50?style=for-the-badge&logo=internet-explorer&logoColor=white" alt="Live Demo" />
+</a>
+
+---
+
 ## ⚙️ Installation & Setup
 
 Follow these steps to set up **To-Do-Task** locally:
